@@ -13,6 +13,7 @@
   For convenience, the getRange method will always return centimeters.
   You can use convert fuctions to convert to another unit (toInches and
   toCentimeters are available)
+  
 */
 #include "Maxbotix.h"
 
