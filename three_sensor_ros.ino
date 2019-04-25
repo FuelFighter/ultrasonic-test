@@ -1,16 +1,5 @@
 /*
-  Maxbotix simple test
-  Instructions:
-  - At least one of: (comment the appropriate code below)
-      PW is digital pin 8
-      TX is digital pin 6
-      AN is analog pin A0
-  - Change code below according to your model (LV, XL and
-  HRLV supported)
-  Note:
-  For convenience, the getRange method will always return centimeters.
-  You can use convert fuctions to convert to another unit (toInches and
-  toCentimeters are available)
+  publishes distance for all three ultrasonic sensors
 */
 
 #include <ros.h>
@@ -21,16 +10,16 @@
 ros::NodeHandle  nh;
 
 sensor_msgs::Range range_msgL;
-ros::Publisher pub_rangeL( "/ultrasoundL", &range_msgL);
-char frameidL[] = "/ultrasoundL";
+ros::Publisher pub_rangeL( "/ultrasound/left/raw", &range_msgL);
+char frameidL[] = "/ultrasound/left";
 
 sensor_msgs::Range range_msgR;
-ros::Publisher pub_rangeR( "/ultrasoundR", &range_msgR);
-char frameidR[] = "/ultrasoundR";
+ros::Publisher pub_rangeR( "/ultrasound/right/raw", &range_msgR);
+char frameidR[] = "/ultrasound/right";
 
 sensor_msgs::Range range_msgC;
-ros::Publisher pub_rangeC( "/ultrasoundC", &range_msgC);
-char frameidC[] = "/ultrasoundC";
+ros::Publisher pub_rangeC( "/ultrasound/center/raw", &range_msgC);
+char frameidC[] = "/ultrasound/center";
 
 Maxbotix rangeSensorPWL(8, Maxbotix::PW, Maxbotix::HRLV);
 Maxbotix rangeSensorPWR(6, Maxbotix::PW, Maxbotix::HRLV);
